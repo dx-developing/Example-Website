@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1125" width="900" height="1125">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0.6" y2="1">
+      <stop offset="0" stop-color="#6b4a0c"/><stop offset="0.5" stop-color="#e09400"/><stop offset="1" stop-color="#ffe08a"/>
+    </linearGradient>
+    <linearGradient id="hero" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffe08a"/><stop offset="1" stop-color="#e09400"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.3" cy="0.2" r="0.9">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.55"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="30"/></filter>
+    <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope="0.035"/></feComponentTransfer><feComposite operator="over" in2="SourceGraphic"/></filter>
+  </defs>
+
+  <rect width="900" height="1125" fill="url(#bg)"/>
+  <g filter="url(#soft)" opacity="0.85">
+    <circle cx="740" cy="180" r="180" fill="#241802" opacity="0.45"/>
+    <circle cx="140" cy="980" r="200" fill="#ffe08a" opacity="0.4"/>
+  </g>
+
+  <g transform="translate(110 150)">
+    <rect x="0" y="0" width="680" height="850" rx="26" fill="#241802" fill-opacity="0.32"/>
+    <rect x="0" y="0" width="680" height="56" rx="26" fill="#241802" fill-opacity="0.5"/>
+    <rect x="0" y="30" width="680" height="26" fill="#241802" fill-opacity="0.5"/>
+    <circle cx="30" cy="28" r="7" fill="#ff6058"/><circle cx="54" cy="28" r="7" fill="#ffbd2e"/><circle cx="78" cy="28" r="7" fill="#28c941"/>
+    <rect x="230" y="17" width="360" height="22" rx="11" fill="#ffffff" fill-opacity="0.12"/>
+
+    <rect x="44" y="104" width="150" height="18" rx="9" fill="#ffffff" fill-opacity="0.28"/>
+    <rect x="44" y="150" width="430" height="40" rx="8" fill="#ffffff" fill-opacity="0.9"/>
+    <rect x="44" y="204" width="330" height="40" rx="8" fill="#ffffff" fill-opacity="0.55"/>
+    <rect x="44" y="272" width="150" height="46" rx="23" fill="url(#hero)"/>
+
+    <rect x="44" y="360" width="592" height="250" rx="16" fill="url(#hero)" opacity="0.9"/>
+    <circle cx="340" cy="485" r="66" fill="#ffffff" fill-opacity="0.25"/>
+
+    <rect x="44"  y="650" width="180" height="150" rx="14" fill="#ffffff" fill-opacity="0.14"/>
+    <rect x="250" y="650" width="180" height="150" rx="14" fill="#ffffff" fill-opacity="0.14"/>
+    <rect x="456" y="650" width="180" height="150" rx="14" fill="#ffffff" fill-opacity="0.14"/>
+  </g>
+
+  <rect width="900" height="1125" fill="url(#glow)"/>
+  <text x="70" y="1080" font-family="'Space Grotesk',Arial,sans-serif" font-weight="700" font-size="52" fill="#241802" fill-opacity="0.85">Solvra</text>
+  <text x="70" y="112" font-family="'Space Grotesk',Arial,sans-serif" font-weight="600" font-size="26" letter-spacing="8" fill="#241802" fill-opacity="0.7">01 — SAAS</text>
+  <rect width="900" height="1125" filter="url(#grain)" opacity="0.45"/>
+</svg>

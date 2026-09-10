@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#0a0a0a" />
+<title>Dexyn — diseño, código y movimiento</title>
+<meta name="description" content="Dexyn es un estudio chico de diseño y desarrollo web. Hacemos sitios rápidos, con movimiento y sin plantillas." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/src/styles.css" />
+<noscript><style>
+  .intro,.scene,.gallery__gl{display:none!important}
+  body.loading{overflow:auto!important;height:auto!important}
+  [data-fade]{opacity:1!important}
+</style></noscript>
+</head>
+<body class="loading">
+
+<div class="intro" id="intro" aria-hidden="true">
+  <div class="intro__panels" aria-hidden="true">
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+  <canvas class="intro__stage" id="introStage" aria-hidden="true"></canvas>
+  <div class="intro__inner">
+    <div class="intro__count"><span id="introNum">0</span><i>%</i></div>
+    <div class="intro__word" id="introWord">Cargando</div>
+  </div>
+</div>
+
+<div class="curtain" id="curtain" aria-hidden="true"></div>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<canvas class="scene" id="scene" aria-hidden="true"></canvas>
+<div class="aurora" id="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+<div class="field" aria-hidden="true">
+  <div class="field__glow field__glow--1" data-parallax="0.18"></div>
+  <div class="field__glow field__glow--2" data-parallax="0.32"></div>
+  <div class="field__grid"></div>
+  <div class="field__noise"></div>
+</div>
+
+<div class="cursor" id="cursor" aria-hidden="true"><span></span></div>
+
+<header class="nav" id="nav">
+  <a href="#top" class="nav__logo" data-magnet>
+    <svg viewBox="0 0 100 100" fill="none" aria-hidden="true"><path d="M20 12 L20 88 L52 88 C74 88 88 72 88 50 C88 28 74 12 52 12 Z" stroke="currentColor" stroke-width="10"/></svg>
+    <span>Dexyn</span>
+  </a>
+  <nav class="nav__links">
+    <a href="#servicios" data-link>Servicios</a>
+    <a href="#work" data-link>Proyectos</a>
+    <a href="#process" data-link>Proceso</a>
+    <a href="#faq" data-link>FAQ</a>
+    <a href="#contact" class="nav__cta" data-magnet data-link>Escríbenos</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <section class="hero" id="hero" data-parallax-scene>
+    <div class="hero__floaters" aria-hidden="true">
+      <i class="fl fl--ring" data-parallax="0.6"></i>
+      <i class="fl fl--diamond" data-parallax="0.9"></i>
+      <i class="fl fl--cross" data-parallax="0.4"></i>
+      <i class="fl fl--dot" data-parallax="1.2"></i>
+      <i class="fl fl--tri" data-parallax="0.7"></i>
+    </div>
+    <div class="hero__content">
+      <p class="hero__kicker" data-fade>Dexyn · estudio de diseño y código · GDL</p>
+      <h1 class="hero__title">
+        <span class="line"><span class="word" data-split>Webs que la</span></span>
+        <span class="line"><span class="word" data-split>gente recuerda</span></span>
+        <span class="line"><span class="word word--accent" data-split>(y usa).</span></span>
+      </h1>
+      <p class="hero__sub" data-fade>Somos un estudio chico. Diseñamos, animamos y programamos cada sitio a mano. Sin plantillas, sin relleno y sin juntas de dos horas.</p>
+      <div class="hero__actions" data-fade>
+        <a href="#work" class="btn btn--solid" data-magnet data-link>Ver proyectos</a>
+        <a href="#contact" class="btn btn--ghost" data-magnet data-link>Cuéntanos la idea</a>
+      </div>
+      <div class="hero__proof" data-fade>
+        <span>Ya trabajamos con</span>
+        <ul><li>Solvra</li><li>Chile 20</li><li>Norte</li><li>Meridia</li><li>Kudo</li></ul>
+      </div>
+    </div>
+    <div class="hero__spec" data-fade aria-hidden="true">
+      <div><b data-count="98">0</b><em>Lighthouse</em></div>
+      <div><b data-count="1" data-suffix=".4s">0</b><em>Carga media</em></div>
+      <div><b data-count="60" data-suffix="fps">0</b><em>Animación</em></div>
+    </div>
+    <div class="hero__cue" aria-hidden="true"><span></span><em>scroll</em></div>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track" id="marqueeTrack">
+      <span>Sitios a medida</span><i>✦</i>
+      <span>Motion &amp; 3D</span><i>✦</i>
+      <span>Tiendas online</span><i>✦</i>
+      <span>Identidad</span><i>✦</i>
+      <span>Rediseños</span><i>✦</i>
+      <span>Landing pages</span><i>✦</i>
+      <span>Mantenimiento</span><i>✦</i>
+    </div>
+  </div>
+
+  <section class="manifesto" id="manifesto">
+    <p class="manifesto__text" id="manifestoText">
+      Una web no es un folleto. Se toca, responde y tiene ritmo. El movimiento está para
+      ayudarte a entender algo más rápido; si no lo hace, <span class="hl">lo quitamos.</span>
+      Preferimos una idea clara y bien ejecutada que diez efectos peleándose por tu atención.
+    </p>
+  </section>
+
+  <section class="services" id="servicios">
+    <header class="section-head" data-fade>
+      <p class="eyebrow">Qué hacemos</p>
+      <h2>Servicios</h2>
+      <p>Todo lo que necesita una web para salir bien y quedarse bien.</p>
+    </header>
+    <div class="services__grid" id="servicesGrid">
+      <article class="svc" data-fade data-tilt>
+        <span class="svc__n">01</span>
+        <h3>Diseño web</h3>
+        <p>Dirección de arte, sistema visual y prototipo navegable antes de escribir una línea de código.</p>
+        <ul><li>UI / UX</li><li>Design system</li><li>Prototipo en Figma</li></ul>
+      </article>
+      <article class="svc" data-fade data-tilt>
+        <span class="svc__n">02</span>
+        <h3>Desarrollo front-end</h3>
+        <p>Código propio, semántico y accesible. Nada de constructores que pesan 2&nbsp;MB.</p>
+        <ul><li>HTML/CSS/JS</li><li>Componentes</li><li>Integración CMS</li></ul>
+      </article>
+      <article class="svc" data-fade data-tilt>
+        <span class="svc__n">03</span>
+        <h3>Motion &amp; 3D</h3>
+        <p>Animación con presupuesto de rendimiento. WebGL cuando suma, CSS cuando basta.</p>
+        <ul><li>Scroll storytelling</li><li>Three.js</li><li>Micro-interacciones</li></ul>
+      </article>
+      <article class="svc" data-fade data-tilt>
+        <span class="svc__n">04</span>
+        <h3>E-commerce</h3>
+        <p>Tiendas rápidas de verdad. Catálogo, carrito y checkout que no espantan a nadie.</p>
+        <ul><li>Shopify / headless</li><li>Pagos</li><li>Analítica</li></ul>
+      </article>
+      <article class="svc" data-fade data-tilt>
+        <span class="svc__n">05</span>
+        <h3>Rediseños</h3>
+        <p>Tomamos tu web actual y la dejamos como debería haber estado desde el principio.</p>
+        <ul><li>Auditoría</li><li>Migración</li><li>SEO técnico</li></ul>
+      </article>
+      <article class="svc" data-fade data-tilt>
+        <span class="svc__n">06</span>
+        <h3>Mantenimiento</h3>
+        <p>Nos quedamos después del lanzamiento. Cambios, métricas y mejoras cada mes.</p>
+        <ul><li>Soporte</li><li>Iteración</li><li>Reportes</li></ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="gallery" id="work">
+    <div class="gallery__pin">
+      <canvas class="gallery__gl" id="galleryGL" data-cursor="recorrer" aria-hidden="true"></canvas>
+      <div class="gallery__ui">
+        <header class="gallery__intro">
+          <p class="eyebrow">Trabajo reciente</p>
+          <h2>Cosas que hicimos<br />hace poco.</h2>
+          <p class="gallery__hint">baja para recorrer →</p>
+        </header>
+        <div class="gallery__now" id="galleryNow">
+          <div class="gcap is-on"><span>01</span><div><h3>Solvra</h3><p>SaaS · diseño + front-end</p></div></div>
+          <div class="gcap"><span>02</span><div><h3>Chile 20</h3><p>Tienda de chamarras · e-commerce</p></div></div>
+          <div class="gcap"><span>03</span><div><h3>Norte</h3><p>Portafolio editorial · motion</p></div></div>
+          <div class="gcap"><span>04</span><div><h3>Aurora Labs</h3><p>Landing de lanzamiento · WebGL</p></div></div>
+          <div class="gcap"><span>05</span><div><h3>Meridia</h3><p>Fintech · dashboard + web</p></div></div>
+          <div class="gcap"><span>06</span><div><h3>Kudo</h3><p>App social · landing + store</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="assemble" id="assemble">
+    <div class="assemble__pin">
+      <div class="assemble__stage" id="assembleStage">
+        <canvas class="assemble__gl" id="assembleGL" data-cursor="scroll" aria-hidden="true"></canvas>
+      </div>
+      <div class="assemble__copy">
+        <p class="eyebrow">Cómo se ve por dentro</p>
+        <h2 id="assembleHeading">Baja y mira<br />cómo encaja.</h2>
+        <p>Nada aparece porque sí. Cada pieza entra cuando toca y desde donde toca. Eso es lo que hace que una web se sienta trabajada y no armada con prisa.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="numbers" id="numbers">
+    <div class="numbers__pin">
+      <p class="eyebrow" data-fade>En números</p>
+      <h2 class="numbers__title" data-scramble>Lo que llevamos</h2>
+      <div class="numbers__grid">
+        <div class="bignum"><b data-count="40" data-suffix="+">0</b><em>Proyectos entregados</em></div>
+        <div class="bignum"><b data-count="6">0</b><em>Años haciendo esto</em></div>
+        <div class="bignum"><b data-count="9" data-suffix="/10">0</b><em>Clientes que repiten</em></div>
+        <div class="bignum"><b data-count="2">0</b><em>Personas en el estudio</em></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="depth" id="depth" data-parallax-scene>
+    <div class="depth__layer depth__layer--back" data-parallax="0.5">DEXYN</div>
+    <div class="depth__layer depth__layer--mid" data-parallax="0.9"></div>
+    <div class="depth__content" data-parallax="1.4">
+      <h2>Rápido o<br />no cuenta.</h2>
+      <p>Apuntamos a 60fps y a cargar en menos de dos segundos. Si tu teléfono suda con nuestra web, la hicimos mal.</p>
+    </div>
+  </section>
+
+  <section class="quotes" id="quotes">
+    <header class="section-head" data-fade>
+      <p class="eyebrow">Lo que dicen</p>
+      <h2>Clientes</h2>
+    </header>
+    <div class="quotes__row" id="quotesRow" aria-hidden="true">
+      <figure class="quote">
+        <blockquote>"Entregaron antes de tiempo y la web vuela. Las visitas se quedan el doble."</blockquote>
+        <figcaption>— Dir. de producto, Solvra</figcaption>
+      </figure>
+      <figure class="quote">
+        <blockquote>"Somos una tienda chica y por fin tenemos algo que no parece plantilla."</blockquote>
+        <figcaption>— Fundadora, Chile 20</figcaption>
+      </figure>
+      <figure class="quote">
+        <blockquote>"El detalle de las animaciones es de otro nivel y aun así carga rapidísimo."</blockquote>
+        <figcaption>— Fotógrafo, Norte</figcaption>
+      </figure>
+      <figure class="quote">
+        <blockquote>"Nos explicaron todo sin humo. Seguimos trabajando con ellos cada mes."</blockquote>
+        <figcaption>— CTO, Meridia</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="process" id="process">
+    <header class="section-head" data-fade>
+      <p class="eyebrow">Método</p>
+      <h2>Cómo trabajamos</h2>
+      <p>Cuatro pasos, sin misterio. Normalmente entre 3 y 6 semanas.</p>
+    </header>
+    <ol class="steps" id="steps">
+      <span class="steps__line" aria-hidden="true"></span>
+      <li class="step" data-fade><span class="step__n">01</span><h3>Hablamos</h3><p>Nos cuentas qué vendes y a quién. Nada de brief de 40 páginas: media hora y una lista de objetivos reales.</p></li>
+      <li class="step" data-fade><span class="step__n">02</span><h3>Dibujamos</h3><p>Dirección visual, referencias y un prototipo navegable que ya se siente real. Iteramos ahí, no en producción.</p></li>
+      <li class="step" data-fade><span class="step__n">03</span><h3>Programamos</h3><p>Código propio, ligero y accesible. Animación con presupuesto. Todo versionado y revisable en un enlace.</p></li>
+      <li class="step" data-fade><span class="step__n">04</span><h3>Publicamos</h3><p>Lo subimos, medimos Core Web Vitals y te dejamos una guía para que puedas moverle sin depender de nadie.</p></li>
+    </ol>
+  </section>
+
+  <section class="faq" id="faq">
+    <header class="section-head" data-fade>
+      <p class="eyebrow">Dudas</p>
+      <h2>Preguntas frecuentes</h2>
+    </header>
+    <div class="faq__list" id="faqList">
+      <details class="faq__item" data-fade>
+        <summary>¿Cuánto cuesta una web con ustedes?</summary>
+        <div class="faq__body"><p>Depende del alcance, pero una landing suele arrancar en el rango de una moto usada y un sitio completo con tienda, en el de un coche usado decente. Te pasamos presupuesto cerrado antes de empezar.</p></div>
+      </details>
+      <details class="faq__item" data-fade>
+        <summary>¿Cuánto tardan?</summary>
+        <div class="faq__body"><p>Entre 3 y 6 semanas para la mayoría de proyectos. Si tienes una fecha límite dura, dínosla antes y te decimos si entra o no.</p></div>
+      </details>
+      <details class="faq__item" data-fade>
+        <summary>¿Trabajan con clientes fuera de México?</summary>
+        <div class="faq__body"><p>Sí. La mitad de nuestro trabajo es remoto. Nos acomodamos a tu zona horaria para las llamadas.</p></div>
+      </details>
+      <details class="faq__item" data-fade>
+        <summary>¿Puedo editar la web yo después?</summary>
+        <div class="faq__body"><p>Sí. Conectamos un CMS para los textos e imágenes y te dejamos una guía corta. Si prefieres que lo mantengamos nosotros, también.</p></div>
+      </details>
+      <details class="faq__item" data-fade>
+        <summary>¿Todas esas animaciones no hacen la web lenta?</summary>
+        <div class="faq__body"><p>No, porque las medimos. Todo corre sobre la GPU, se pausa cuando no se ve y respeta la opción de "reducir movimiento" del sistema.</p></div>
+      </details>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="contact__inner" data-fade>
+      <p class="contact__kicker"><span class="dot"></span> Disponibles para nuevos proyectos</p>
+      <h2 class="contact__big">
+        <span class="line"><span class="word" data-split>Cuéntanos</span></span>
+        <span class="line"><span class="word word--accent" data-split>la idea.</span></span>
+      </h2>
+      <a href="mailto:hola@dexyn.studio" class="btn btn--solid btn--lg" data-magnet>hola@dexyn.studio</a>
+      <div class="contact__links">
+        <a href="#" data-magnet>Instagram</a>
+        <a href="#" data-magnet>Behance</a>
+        <a href="#" data-magnet>GitHub</a>
+        <a href="#" data-magnet>LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div class="marquee marquee--foot" aria-hidden="true">
+  <div class="marquee__track" id="marqueeFoot">
+    <span>Hagamos algo bueno</span><i>◆</i>
+    <span>hola@dexyn.studio</span><i>◆</i>
+    <span>Guadalajara → el mundo</span><i>◆</i>
+    <span>Sin plantillas</span><i>◆</i>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer__top">
+    <div class="footer__brand">
+      <a href="#top" class="nav__logo" data-magnet>
+        <svg viewBox="0 0 100 100" fill="none" aria-hidden="true"><path d="M20 12 L20 88 L52 88 C74 88 88 72 88 50 C88 28 74 12 52 12 Z" stroke="currentColor" stroke-width="10"/></svg>
+        <span>Dexyn</span>
+      </a>
+      <p>Estudio de diseño y desarrollo web. Guadalajara, México.</p>
+      <p class="footer__clock" id="clock" aria-hidden="true">Hora en GDL <b>--:--:--</b></p>
+    </div>
+    <nav class="footer__col">
+      <h4>Estudio</h4>
+      <a href="#servicios" data-link>Servicios</a>
+      <a href="#work" data-link>Proyectos</a>
+      <a href="#process" data-link>Proceso</a>
+      <a href="#faq" data-link>FAQ</a>
+    </nav>
+    <nav class="footer__col">
+      <h4>Contacto</h4>
+      <a href="mailto:hola@dexyn.studio">hola@dexyn.studio</a>
+      <a href="#">Instagram</a>
+      <a href="#">Behance</a>
+      <a href="#">GitHub</a>
+    </nav>
+  </div>
+  <div class="footer__word" aria-hidden="true">DEXYN</div>
+  <div class="footer__bar">
+    <span>© 2026 Dexyn</span>
+    <span>Hecho sin plantilla</span>
+  </div>
+</footer>
+
+<div class="cookie" id="cookie" role="dialog" aria-label="Aviso de cookies" aria-live="polite" hidden>
+  <div class="cookie__body">
+    <p class="cookie__title">Cookies</p>
+    <p class="cookie__text">Guardamos tus ajustes y contamos cuánta gente pasa por aquí. Nada más. ¿Va?</p>
+  </div>
+  <div class="cookie__actions">
+    <button type="button" class="btn btn--ghost btn--sm" data-consent="denied">No</button>
+    <button type="button" class="btn btn--solid btn--sm" data-consent="granted" data-magnet>Va</button>
+  </div>
+</div>
+
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>
